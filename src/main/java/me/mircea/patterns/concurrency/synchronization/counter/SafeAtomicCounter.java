@@ -40,6 +40,26 @@ public class SafeAtomicCounter implements Counter {
         return this.counter;
     }
 
+    /**
+     * This is an example of <b>optimistic locking</b>.
+     * The basic premise of optimistic locking is that multiple transactions can frequently
+     * complete without interfering with each other: low data contention.
+     * <p>
+     * Phases:
+     * <ul>
+     * <li>begin</li>
+     * <li>modify</li>
+     * <li>validate</li>
+     * <li>commit/rollback</li>
+     * </ul>
+     * <p>
+     * Time-of-check to time-of-use bugs are very easy to introduce if
+     * last two phases are not performed as single atomic operation.
+     * <p>
+     * Validation is deferred to the moment of "commit" and atomic CAS operation is used.
+     *
+     * @return This counter.
+     */
     @Override
     public Counter increment() {
         int i;

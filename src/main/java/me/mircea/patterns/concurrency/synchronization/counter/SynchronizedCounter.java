@@ -1,5 +1,10 @@
 package me.mircea.patterns.concurrency.synchronization.counter;
 
+/**
+ * Make the increment method synchronized. If N threads are trying to execute the increment method, only one will obtain the lock and proceed through the critical section.
+ * The others will be blocked until that thread release the lock.
+ * This is an example of <b>pessimistic locking</b>.
+ */
 public class SynchronizedCounter implements Counter {
     private int counter;
 
