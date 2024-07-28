@@ -1,4 +1,4 @@
-package me.mircea.patterns.concurrency;
+package me.mircea.patterns.concurrency.threads;
 
 import lombok.extern.slf4j.Slf4j;
 
