@@ -1,5 +1,6 @@
 package me.mircea.patterns.design.singleton;
 
+import me.mircea.patterns.design.structural.singleton.EagerSingleton;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;

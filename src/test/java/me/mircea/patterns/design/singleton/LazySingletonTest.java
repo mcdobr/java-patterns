@@ -1,10 +1,7 @@
 package me.mircea.patterns.design.singleton;
 
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
+import me.mircea.patterns.design.structural.singleton.LazySingleton;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.logging.LoggerFactory;
 
 import java.util.List;
 import java.util.concurrent.*;

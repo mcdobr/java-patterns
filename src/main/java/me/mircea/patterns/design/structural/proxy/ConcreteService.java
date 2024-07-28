@@ -1,4 +1,4 @@
-package me.mircea.patterns.design.proxy;
+package me.mircea.patterns.design.structural.proxy;
 
 public class ConcreteService implements Service {
     @Override

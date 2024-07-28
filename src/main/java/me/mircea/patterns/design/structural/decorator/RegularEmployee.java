@@ -1,4 +1,4 @@
-package me.mircea.patterns.design.decorator;
+package me.mircea.patterns.design.structural.decorator;
 
 public class RegularEmployee implements Employee {
     @Override

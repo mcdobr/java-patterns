@@ -1,4 +1,4 @@
-package me.mircea.patterns.design.singleton;
+package me.mircea.patterns.design.structural.singleton;
 
 import java.util.Objects;
 

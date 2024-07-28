@@ -1,10 +1,12 @@
 package me.mircea.patterns.design.decorator;
 
-import org.junit.jupiter.api.BeforeEach;
+import me.mircea.patterns.design.structural.decorator.Employee;
+import me.mircea.patterns.design.structural.decorator.Interviewer;
+import me.mircea.patterns.design.structural.decorator.RegularEmployee;
+import me.mircea.patterns.design.structural.decorator.TeamLeader;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class EmployeeTest {
     @Test
