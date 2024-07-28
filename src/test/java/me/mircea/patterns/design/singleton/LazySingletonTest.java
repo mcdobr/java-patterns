@@ -27,14 +27,15 @@ class LazySingletonTest {
 
     @Test
     void shouldInstantiateOnlyOnceOverMultipleThreads() throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(100);
+        int numberOfThreads = 10;
+        ExecutorService executorService = Executors.newFixedThreadPool(numberOfThreads);
         Callable<LazySingleton> runnableTask = LazySingleton::getInstance;
 
-        List<Future<LazySingleton>> futures = executorService.invokeAll(
-                IntStream.of(100)
-                        .mapToObj(i -> runnableTask)
-                        .toList()
-        );
+        int numberOfTasks = 100;
+        List<Callable<LazySingleton>> tasks = IntStream.range(0, numberOfTasks)
+                .mapToObj(i -> runnableTask)
+                .toList();
+        List<Future<LazySingleton>> futures = executorService.invokeAll(tasks);
 
         executorService.shutdown();
         while (!executorService.awaitTermination(10, TimeUnit.MILLISECONDS)) {
