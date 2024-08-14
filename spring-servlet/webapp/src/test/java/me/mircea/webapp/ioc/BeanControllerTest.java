@@ -35,6 +35,14 @@ class BeanControllerTest {
         assertThat(first).isEqualTo(second);
     }
 
+    @Test
+    void sessionBeansShouldBeSameObjectOnDifferentRequests() throws Exception {
+        Long first = makeSessionBeanCall();
+        Long second = makeSessionBeanCall();
+
+        assertThat(first).isEqualTo(second);
+    }
+
     private long makeRequestBeanCall() throws Exception {
         return Long.parseLong(
                 mockMvc.perform(get("/api/beans/request"))
@@ -47,6 +55,15 @@ class BeanControllerTest {
     private long makeApplicationBeanCall() throws Exception {
         return Long.parseLong(
                 mockMvc.perform(get("/api/beans/application"))
+                        .andReturn()
+                        .getResponse()
+                        .getContentAsString()
+        );
+    }
+
+    private long makeSessionBeanCall() throws Exception {
+        return Long.parseLong(
+                mockMvc.perform(get("/api/beans/session"))
                         .andReturn()
                         .getResponse()
                         .getContentAsString()

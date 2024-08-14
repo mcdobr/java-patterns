@@ -1,0 +1,5 @@
+server:
+  session:
+    timeout: 1
+    cookie:
+      max-age: 1
