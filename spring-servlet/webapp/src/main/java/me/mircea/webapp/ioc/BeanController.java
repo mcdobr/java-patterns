@@ -1,20 +1,19 @@
 package me.mircea.webapp.ioc;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/beans")
+@RequiredArgsConstructor
 public class BeanController {
     private final SingletonBean singletonBean;
 
     private final PrototypeBean prototypeBean;
 
-    public BeanController(SingletonBean singletonBean, PrototypeBean prototypeBean) {
-        this.singletonBean = singletonBean;
-        this.prototypeBean = prototypeBean;
-    }
+    private final ApplicationBean applicationBean;
 
     @GetMapping("/singleton")
     public int getSingleton() {
@@ -29,5 +28,10 @@ public class BeanController {
     @GetMapping("/request")
     public int getRequest(RequestBean requestBean) {
         return requestBean.hashCode();
+    }
+
+    @GetMapping("/application")
+    public int getApplication() {
+        return applicationBean.hashCode();
     }
 }
