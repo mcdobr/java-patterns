@@ -1,4 +1,4 @@
-package me.mircea.webapp.ioc;
+package me.mircea.webapp.ioc.application;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

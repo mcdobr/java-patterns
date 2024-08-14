@@ -1,8 +1,10 @@
-package me.mircea.webapp.ioc;
+package me.mircea.webapp.ioc.singleton;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class SingletonBean {
     public SingletonBean() {
     }
