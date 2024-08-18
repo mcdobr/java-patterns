@@ -12,6 +12,7 @@
     <modules>
         <module>standard</module>
         <module>spring-servlet</module>
+        <module>standard-benchmarks</module>
     </modules>
 
 </project>
