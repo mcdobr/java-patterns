@@ -63,4 +63,18 @@ class ExecutorsTest {
         Assertions.assertThat(firstResult).isEqualTo(expectedFirstResult);
         Assertions.assertThat(secondResult).isEqualTo(expectedSecondResult);
     }
+
+    @Test
+    void shouldCreateNewThreadPerTaskExecutor() {
+        ExecutorService executorService = Executors.newThreadPerTaskExecutor(Executors.defaultThreadFactory());
+
+        assertThat(executorService).isNotNull();
+    }
+
+    @Test
+    void shouldCreateScheduledThreadPoolExecutor() {
+        ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
+
+        assertThat(executorService).isNotNull();
+    }
 }
